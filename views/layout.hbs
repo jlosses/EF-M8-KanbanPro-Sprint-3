@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - KanbanPro</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e0e0e0;
+        }
+
+        .nav-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-auth {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+            padding: 8px 15px;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="nav-brand">KanbanPro</a>
+            <ul>
+                {{#if usuario}}
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><span style="color: #e0e0e0;">{{usuario.email}}</span></li>
+                    <li><a href="/logout" class="logout-btn">Cerrar Sesión</a></li>
+                {{else}}
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/registro">Registro</a></li>
+                    <li><a href="/login">Iniciar Sesión</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {{{body}}}
+    </main>
+    <footer>
+        <p>&copy; 2024 KanbanPro. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
